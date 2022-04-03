@@ -12,7 +12,6 @@ enum GroundType { SURFACE, MIDDLE, DIAGONAL }
 class GroundChild extends SpriteComponent
     with GestureHitboxes, CollisionCallbacks {
   BoxType boxType;
-  Sprite useSprite;
   GroundType type;
   var hitbox;
   int texture = 0;
@@ -21,8 +20,9 @@ class GroundChild extends SpriteComponent
   void onMount() {
     anchor = Anchor.center;
     texture = Random().nextInt(2);
-    useSprite = sprite.getSprite(getSpriteType(type), texture);
 
+    // sprite.getSprite(getSpriteType(type), texture);
+    // this.
     if (boxType != BoxType.MIDDLE) {
       add(hitbox = HitboxType(boxType, size).hitbox);
     }

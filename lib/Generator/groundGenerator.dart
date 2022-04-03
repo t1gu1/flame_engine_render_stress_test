@@ -27,11 +27,8 @@ class GroundGenerator {
     heightLevel = 0;
     heightModifier = 0;
 
-    // sprite = SpriteSheet(
-    //   image: await ctx.images.load('rock.png'),
-    //   srcSize: Vector2.all(32.0),
-    // );
-    sprite = await Sprite.load('rock.png');
+    sprite = await Sprite.load('rock.png',
+        srcSize: Vector2.all(32.0), srcPosition: Vector2(0, 32));
   }
 
   void update() {
@@ -57,6 +54,7 @@ class GroundGenerator {
     GroundChild baseGround() => GroundChild()
       ..size = Vector2(blockSize, blockSize)
       ..sprite = sprite
+      ..texture
       ..flipVertically();
 
     GroundGroup groundGroup = GroundGroup()
