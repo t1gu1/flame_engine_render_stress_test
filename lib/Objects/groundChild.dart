@@ -9,10 +9,9 @@ import 'package:flutter/material.dart';
 
 enum GroundType { SURFACE, MIDDLE, DIAGONAL }
 
-class GroundChild extends PositionComponent
+class GroundChild extends SpriteComponent
     with GestureHitboxes, CollisionCallbacks {
   BoxType boxType;
-  SpriteSheet sprite;
   Sprite useSprite;
   GroundType type;
   var hitbox;
@@ -27,21 +26,6 @@ class GroundChild extends PositionComponent
     if (boxType != BoxType.MIDDLE) {
       add(hitbox = HitboxType(boxType, size).hitbox);
     }
-  }
-
-  @override
-  void render(Canvas c) {
-    // if (boxType != BoxType.MIDDLE)
-    //   hitbox..collisionType = CollisionType.inactive;
-
-    useSprite.render(c,
-        size: size,
-        overridePaint: Paint()
-          ..colorFilter = ColorFilter.mode(
-            Color(0xFFFC994D),
-            BlendMode.modulate,
-            // BlendMode.srcIn,
-          ));
   }
 
   getSpriteType(GroundType groundType) {

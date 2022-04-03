@@ -12,7 +12,7 @@ import 'package:flame/input.dart';
 class GroundGenerator {
   double lastGroundAdding = 0;
   MainGame ctx;
-  SpriteSheet sprite;
+  Sprite sprite;
   double distanceBeforeGenerateBlock = 0;
   double blockSize = 66;
   int upOrDown = 0;
@@ -27,10 +27,11 @@ class GroundGenerator {
     heightLevel = 0;
     heightModifier = 0;
 
-    sprite = SpriteSheet(
-      image: await ctx.images.load('rock.png'),
-      srcSize: Vector2.all(32.0),
-    );
+    // sprite = SpriteSheet(
+    //   image: await ctx.images.load('rock.png'),
+    //   srcSize: Vector2.all(32.0),
+    // );
+    sprite = await Sprite.load('rock.png');
   }
 
   void update() {
